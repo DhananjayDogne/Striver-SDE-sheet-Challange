@@ -31,15 +31,12 @@ public class Solution {
             }
             temp=temp.next;
         }
-        while(first!=null){
+        if(first!=null){
                 temp.next=first;
-                first=first.next;
-                temp=temp.next;
+                
         }
-        while(second!=null){
+        if(second!=null){
                 temp.next=second;
-                second=second.next;
-                temp=temp.next;
         }
         return head.next;
 	}
