@@ -13,13 +13,13 @@ public class Solution {
 	public static int minTimeToRot(int[][] grid, int n, int m) {
 		// Write your code here.
 		Queue<Pair> q=new LinkedList<>();
-		int[][] dp=new int[n][m];
+		
 		int count1=0;
 		for(int i=0;i<n;i++){
 			for(int j=0;j<m;j++){
 				if(grid[i][j]==2){
 					q.add(new Pair(i,j,0));
-					dp[i][j]=2;
+				
 				}
 				if(grid[i][j]==1){
 					count1+=1;
@@ -36,8 +36,8 @@ public class Solution {
 			int t=p.time;
 			ans=Math.max(ans,t);
 			for(int i=0;i<4;i++){
-				if(r+dir[i][0]>=0 && r+dir[i][0]<n && c+dir[i][1]>=0 && c+dir[i][1]<m && grid[r+dir[i][0]][c+dir[i][1]]==1 && dp[r+dir[i][0]][c+dir[i][1]]==0){
-					dp[r+dir[i][0]][c+dir[i][1]]=2;
+				if(r+dir[i][0]>=0 && r+dir[i][0]<n && c+dir[i][1]>=0 && c+dir[i][1]<m && grid[r+dir[i][0]][c+dir[i][1]]==1){
+				    grid[r+dir[i][0]][c+dir[i][1]]=2;
 					q.add(new Pair(r+dir[i][0],c+dir[i][1],t+1));
 					count+=1;
 				}
